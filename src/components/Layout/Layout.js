@@ -1,15 +1,15 @@
 import React from 'react';
 
-import Aux from '../../hoc/Aux';
+import AuxCmp from '../../hoCmp/AuxCmp';
 import classes from './Layout.css';
 
 const Layout = (props) => (
-    <Aux>
+    <AuxCmp>
         <div>ToolBar,SideDrawer and BackDrop</div>
         <main className = {classes.Content}>
             {props.children}
         </main>
-     </Aux>   
+     </AuxCmp>   
 );
 
 export default Layout;

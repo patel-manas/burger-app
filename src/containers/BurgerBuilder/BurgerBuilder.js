@@ -1,7 +1,7 @@
 import React,  { Component } from 'react';
 
 
-import Aux from './../../hoc/Aux';
+import AuxCmp from './../../hoCmp/AuxCmp';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from './../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -90,7 +90,7 @@ class BurgerBuilder extends Component {
         }
 
         return(
-            <Aux>
+            <AuxCmp>
                 <Modal />
                 {/* <img src="burger.img" alt="Burger Image" /> */}
                 <Burger ingredients = {this.state.ingredients}/>
@@ -100,7 +100,7 @@ class BurgerBuilder extends Component {
                 disabled = {disableInfo}
                 isPurchaseabe = {this.state.purchaseable}
                 price = {this.state.totalPrice}/>
-            </Aux>
+            </AuxCmp>
         );
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import Aux from '../../../hoc/Aux';
+import AuxCmp from '../../../hoCmp/AuxCmp';
 
 const OrderSummary = (props) => {
     return(
-        <Aux>
-        </Aux>
+        <AuxCmp>
+        </AuxCmp>
     );
 }
