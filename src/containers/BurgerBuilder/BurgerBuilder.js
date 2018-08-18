@@ -5,7 +5,7 @@ import AuxCmp from './../../hoCmp/AuxCmp';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from './../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
-
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 const PRICES = {
     salad:1.2,
@@ -24,7 +24,8 @@ class BurgerBuilder extends Component {
             meat:0
         },
         totalPrice:5,
-        purchaseable:false
+        purchaseable:false,
+        purchasing: false
     }
 
     addIngradientHandler = (type) => {
@@ -80,6 +81,12 @@ class BurgerBuilder extends Component {
         this.setState({purchaseable: sumOfIngradients > 0});
 
     }
+    purchasingHandler = () => {
+        this.setState({purchasing:true});
+    }
+    purchasingCancelHandler = () => {
+        this.setState({purchasing:false});
+    }
 
     render(){
         //TODO:
@@ -91,7 +98,9 @@ class BurgerBuilder extends Component {
 
         return(
             <AuxCmp>
-                <Modal />
+                <Modal show = {this.state.purchasing} closeModal = {this.purchasingCancelHandler}>
+                    <OrderSummary ingradients = {this.state.ingredients}/>
+                </Modal>
                 {/* <img src="burger.img" alt="Burger Image" /> */}
                 <Burger ingredients = {this.state.ingredients}/>
                 <BuildControls 
@@ -99,7 +108,8 @@ class BurgerBuilder extends Component {
                 ingradientRemoved = {this.removeIngradientHandler}
                 disabled = {disableInfo}
                 isPurchaseabe = {this.state.purchaseable}
-                price = {this.state.totalPrice}/>
+                price = {this.state.totalPrice}
+                isPurchasing = {this.purchasingHandler}/>
             </AuxCmp>
         );
     }

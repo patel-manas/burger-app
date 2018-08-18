@@ -1,10 +1,9 @@
 import React from 'react'
+import classes from './BackDrop.css';
 
 const BackDrop = (props) => {
     return (
-        <div>
-            {props.children}
-        </div>
+        props.show ? <div className = {classes.BackDrop} onClick = {props.modalClosed}></div> : null
     );
 }
 
